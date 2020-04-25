@@ -1,0 +1,33 @@
+<configuration>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <!-- encoders are assigned the type
+             ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="info">
+        <appender-ref ref="STDOUT" />
+    </root>
+    <logger level="TRACE" name="io.micronaut.context"/>
+    <logger level="TRACE" name="io.micronaut.http.client"></logger>
+    <logger level="TRACE" name="io.micronaut.http.server"></logger>
+    <logger level="TRACE" name="io.micronaut.management"></logger>
+    <!--<logger level="TRACE" name="io.micronaut.context"></logger>-->
+    <logger level="DEBUG" name="io.micronaut.context.condition"/>
+    <logger level="TRACE" name="io.micronaut.cache"/>
+    <logger level="TRACE" name="io.micronaut.retry"/>
+    <!-- hibernate and tx-->
+    <logger level="TRACE" name="io.micronaut.spring.tx"/>
+    <logger level="TRACE" name="org.springframework.orm.hibernate5"/>
+
+    <logger level="TRACE" name="hello.world"/>
+    <logger level="TRACE" name="okhttp3" />
+    <logger level="TRACE" name="io.github.resilience4j" />
+    <logger level="TRACE" name="io.github.robwin" />
+
+
+
+</configuration>

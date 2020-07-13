@@ -1,0 +1,9 @@
+start zookeeper and kafka
+  https://docs.confluent.io/3.3.0/quickstart.html#:~:text=In%20this%20quick%20start%20you,data%20to%20and%20from%20Kafka.&text=To%20start%20a%20data%20pipeline,one%20of%20the%20installation%20options.
+
+  $ ./bin/zookeeper-server-start ./etc/kafka/zookeeper.properties
+  $ ./bin/kafka-server-start ./etc/kafka/server.properties
+  $ ./bin/schema-registry-start ./etc/schema-registry/schema-registry.properties
+
+./kafka-topics --list --zookeeper zookeeper:2181
+./kafka-console-consumer --bootstrap-server localhost:9092 --topic log-test --from-beginning

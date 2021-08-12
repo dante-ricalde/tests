@@ -35,8 +35,8 @@ import retrofit2.http.GET;
 //@EnableRetrofitClients(defaultConfiguration = HelloClient2RetrofitConfig.class)
 //@EnableRetrofitClients
 @Configuration
-//public class HelloClient2Configuration extends AtlasAbstractHttpClientConfiguration {
-public class HelloClient2Configuration {
+public class HelloClient2Configuration extends AtlasAbstractHttpClientConfiguration {
+//public class HelloClient2Configuration {
 
     /*@RetrofitClient(name = "HelloServer2", url = "http://localhost:7112", qualifier = "HelloServer2Client", configuration = HelloClientRetrofitConfig2.class)
     public interface HelloClient2 {
@@ -44,19 +44,19 @@ public class HelloClient2Configuration {
         Mono<String> hello();
     }*/
 
-    /*@Override
+    @Override
     public String prefix() {
         return "hello2WebClientBuilder";
     }
 
-    @Bean
-    WebClient.Builder helloWebClientBuilder2() {
+    @Bean(name = "hello2WebClientBuilder")
+    public WebClient.Builder createBuilder() {
         final WebClient.Builder builder = super.buildHttpBuilder();
-
+        builder.baseUrl("http://localhost:7116");
         //customize builder
 
         return builder;
-    }*/
+    }
 
         /*@Bean
         WebClient.Builder helloWebClientBuilder() {
@@ -71,7 +71,7 @@ public class HelloClient2Configuration {
         }*/
     //}
 
-    static class HelloClient2RetrofitConfig extends AtlasAbstractHttpClientConfiguration {
+    /*static class HelloClient2RetrofitConfig extends AtlasAbstractHttpClientConfiguration {
 
         @Override
         public String prefix() {
@@ -98,6 +98,6 @@ public class HelloClient2Configuration {
                     .baseUrl("http://localhost:7111")
                     .clientConnector(new ReactorClientHttpConnector(httpClient));
         }*/
-    }
+    //}
 
 }

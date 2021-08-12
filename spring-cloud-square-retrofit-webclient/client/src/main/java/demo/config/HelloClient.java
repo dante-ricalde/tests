@@ -21,7 +21,7 @@ import retrofit2.http.GET;
  * @version 1.0
  */
 //@RetrofitClient(name = "HelloServer", url = "http://localhost:7111", configuration = HelloClientConfiguration.HelloClientRetrofitConfig.class)
-@RetrofitClient(name = "HelloServer", url = "http://localhost:7111", qualifier = "HelloServerClient", configuration = HelloClientRetrofitConfig1.class)
+@RetrofitClient(name = "HelloServer", url = "http://localhost:7111", qualifier = "HelloServerClient", configuration = HelloClientConfiguration.class)
 //@RetrofitClient(name = "HelloServer", url = "http://localhost:7111", qualifier = "HelloServerClient")
 public interface HelloClient {
 

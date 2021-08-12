@@ -34,23 +34,23 @@ import retrofit2.http.GET;
 //@EnableRetrofitClients(defaultConfiguration = HelloClientRetrofitConfig1.class)
 @EnableRetrofitClients
 @Configuration
-//public class HelloClientConfiguration extends AtlasAbstractHttpClientConfiguration {
-public class HelloClientConfiguration {
+public class HelloClientConfiguration extends AtlasAbstractHttpClientConfiguration {
+//public class HelloClientConfiguration {
 
 
-    /*@Override
+    @Override
     public String prefix() {
         return "helloWebClientBuilder";
     }
 
-    //@Qualifier("helloWebClientBuilder")
-    @Bean
-    WebClient.Builder helloWebClientBuilder() {
+    @Bean(name = "helloWebClientBuilder")
+    public WebClient.Builder createBuilder() {
         final WebClient.Builder builder = super.buildHttpBuilder();
+        builder.baseUrl("http://localhost:7111");
+        //customize builder
 
-            //customize builder
         return builder;
-    }*/
+    }
 
 
         //@RetrofitClient("HelloServer")
@@ -69,7 +69,7 @@ public class HelloClientConfiguration {
                     .clientConnector(new ReactorClientHttpConnector(httpClient));
         }
     }*/
-    static class HelloClientRetrofitConfig extends AtlasAbstractHttpClientConfiguration {
+    /*static class HelloClientRetrofitConfig extends AtlasAbstractHttpClientConfiguration {
 
         @Override
         public String prefix() {
@@ -96,6 +96,6 @@ public class HelloClientConfiguration {
                     .baseUrl("http://localhost:7111")
                     .clientConnector(new ReactorClientHttpConnector(httpClient));
         }*/
-    }
+    //}
 
 }

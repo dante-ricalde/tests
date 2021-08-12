@@ -1,0 +1,49 @@
+class abstract AtlasAbstractHttpClientConfgiguration {
+
+        
+        String prefix();
+
+        @Bean
+        WebClientBuilder defaultPrefixWebClientBuilder() {
+            String prefix = prefix();
+            Binder.get(environmet).bind();
+
+        }
+
+}
+
+DefaultHttpClientConfiguration {
+
+        @Bean
+        WebClientBuilder defaultWebClientBuilder() {
+            /*String prefix = prefix();
+            HttpClientProperties httpClientProperties = new HttpClientProperties();
+            connectionTime(httpClientProperties.connectTimeout);*/
+            return HttpClient.builder();
+        }
+}
+
+
+        
+        CardHttpClientConfiguration extend AtlasHttpClientConfgiguration {
+
+
+        }
+        
+        AccountHttpClientConfiguration extend AtlasHttpClientConfgiguration {
+
+        }
+        
+        @RetrofitClient(configuration = CardHttpClientConfiguration.class)
+        CardApi {
+
+        }
+
+        @RetrofitClient(configuration = DefaultHttpClientConfiguration.class)
+        AffiliationsApi {
+
+        }
+
+Notes:
+- update defaults of HttpClientProperties with the default values of WebClient 30, 30, 30 seconds
+- open api generator should generate ApiCustomClientConfiguration (CardHttpClientConfiguration, AccountHttpClientConfiguration)

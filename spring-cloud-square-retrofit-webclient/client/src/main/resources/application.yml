@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: HelloClient
+  cloud:
+    loadbalancer:
+      ribbon:
+        enabled: false
+server:
+  port: 7211
